@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = "This wrapper is built to communicate with a custom Cloudhub API."
   s.authors     = ["Erik Froese"]
   s.email       = 'froesecom@gmail.com'
-  s.files       = ["lib/cloudhub_wrapper.rb", "MIT-LICENSE", "README.md"]
+  s.files       = ["lib/cloudhub_wrapper.rb"]
   s.homepage    =
     'http://rubygems.org/gems/cloudhub_wrapper'
   s.license       = 'MIT'
