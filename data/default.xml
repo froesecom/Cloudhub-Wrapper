@@ -13,9 +13,9 @@
       <ns0:email>#{ subscriber.email }</ns0:email>
       <ns0:phone>#{ subscriber.mobile }</ns0:phone>
       <ns0:contactPreference contactVia='Email' contactOption='OptIn'/>
-    <ns0:channelContactPreferences>
-      <ns0:channelContactPreference channel='#{ channel }' contactOption='optIn' origin='#{ origin }'/>
-    </ns0:channelContactPreferences>
+      <ns0:channelContactPreferences>
+        <ns0:channelContactPreference channel='#{ channel }' contactOption='optIn' origin='#{ origin }'/>
+      </ns0:channelContactPreferences>
   </ns0:contact>
   </ns0:account>
 </ns0:accountInterchange>
