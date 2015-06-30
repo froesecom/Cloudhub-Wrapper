@@ -33,7 +33,7 @@ class CloudhubWrapper
 
     doc        = REXML::Document.new(File.read(File.join(File.dirname(__FILE__), "..", "data", "default.xml")))
     root       = doc.root
-    address_el = root.elements[1].elements["ns0:address"]exit
+    address_el = root.elements[1].elements["ns0:address"]
     contact_el = root.elements[1].elements["ns0:contact"]
     
     root.add_attributes({"interchangeDate" => Time.now.to_s, "xmlns:ns0" => schema})
