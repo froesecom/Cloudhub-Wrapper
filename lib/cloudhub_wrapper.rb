@@ -2,7 +2,6 @@ class CloudhubWrapper
 
   require "net/https"
   require "uri"
-  require "builder"
   require "rexml/document"
   
 
@@ -39,13 +38,30 @@ class CloudhubWrapper
 
 
     doc = REXML::Document.new(File.read("data/default.xml"))
-    root = doc.root
+    root       = doc.root
+    address_el = root.elements[1].elements["ns0:address"]
+    contact_el = root.elements[1].elements["ns0:contact"]
+    
     root.add_attributes({"interchangeDate" => Time.now.to_s, "xmlns:ns0" => schema})
     root.elements["ns0:account"].add_attributes({"id" => subscriber.email, "creationDateTime" => Time.now.to_s, "xmlns:ns0" => schema})
-    root.elements[1].elements["ns0:address"]
+    contact_el.elements["ns0:channelContactPreferences"].children[1].add_attributes({"channel" => channel, "origin" => origin})
+
+    address_elements.each do |array|
+      if subscriber.respond_to? array[0]
+        el = REXML::Element.new("ns0:#{array[1]}", address_el)
+        el.add_text(subscriber[array[0]])
+      end
+    end
+
+    contact_elements.each do |array|
+      if subscriber.respond_to? array[0]
+        el = REXML::Element.new("ns0:#{array[1]}", contact_el)
+        el.add_text(subscriber[array[0]])
+      end
+    end
 
 
-    @xml = doc.to_s #turn this into xml 
+    @xml = doc.to_s
     
   end
 
