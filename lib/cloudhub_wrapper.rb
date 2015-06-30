@@ -44,19 +44,19 @@ class CloudhubWrapper
     
     root.add_attributes({"interchangeDate" => Time.now.to_s, "xmlns:ns0" => schema})
     root.elements["ns0:account"].add_attributes({"id" => subscriber.email, "creationDateTime" => Time.now.to_s, "xmlns:ns0" => schema})
-    contact_el.elements["ns0:channelContactPreferences"].children[1].add_attributes({"channel" => channel, "origin" => origin})
+    contact_el.elements["ns0:channelContactPreferences"].children[1].add_attributes({"channel" => channel, "origin" => origin })
 
     address_elements.each do |array|
       if subscriber.respond_to? array[0]
         el = REXML::Element.new("ns0:#{array[1]}", address_el)
-        el.add_text(subscriber[array[0]])
+        el.add_text(subscriber.send(array[0]))
       end
     end
 
     contact_elements.each do |array|
       if subscriber.respond_to? array[0]
         el = REXML::Element.new("ns0:#{array[1]}", contact_el)
-        el.add_text(subscriber[array[0]])
+        el.add_text(subscriber.send(array[0]))
       end
     end
 
