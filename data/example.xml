@@ -19,25 +19,3 @@
   </ns0:contact>
   </ns0:account>
 </ns0:accountInterchange>
-
-<ns0:accountInterchange agreementName='SF.LE' interchangeControlNo='00000001' interchangeDate='2015-06-30 11:50:59 +1000' xmlns:ns0='schema' receiverId='SF' receiverQualifier='ZZ' senderId='LE' senderQualifier='ZZ'>
-  <ns0:account creationDateTime='2015-06-30 11:50:59 +1000' domain='external' id='email@email.com' xmlns:ns0='schema' type='Retail Account'>
-    <ns0:address addressType='home'>
-      <ns0:country isoCountryCode='AU'>Australia</ns0:country>
-      <ns0:addressLine>test address</ns0:addressLine>
-      <ns0:suburb>test suburb</ns0:suburb>
-      <ns0:postalcode>1234</ns0:postalcode>
-      <ns0:state>state</ns0:state>
-    </ns0:address>
-    <ns0:contact contactRole='requestor'>
-      <ns0:contactPreference contactOption='OptIn' contactVia='Email'/>
-      <ns0:channelContactPreferences>
-        <ns0:channelContactPreference channel='channel' contactOption='optIn' origin='origin'/>
-      </ns0:channelContactPreferences>
-      <ns0:firstName>test_first</ns0:firstName>
-      <ns0:lastName>test_last</ns0:lastName>
-      <ns0:email>email@email.com</ns0:email>
-      <ns0:phone>1233456789</ns0:phone>
-    </ns0:contact>
-    </ns0:account>
-  </ns0:accountInterchange>
