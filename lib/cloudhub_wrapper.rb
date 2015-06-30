@@ -11,13 +11,7 @@ class CloudhubWrapper
     @password = password
   end
 
-  def xml
-    @xml
-  end
-
-  def xml=(xml)
-    @xml = xml
-  end
+  attr_accessor :xml
 
   def build_xml(subscriber, channel, origin, schema)
     address_elements = [
@@ -37,9 +31,9 @@ class CloudhubWrapper
     ]
 
 
-    doc = REXML::Document.new(File.read("data/default.xml"))
+    doc        = REXML::Document.new(File.read(File.join(File.dirname(__FILE__), "..", "data", "default.xml")))
     root       = doc.root
-    address_el = root.elements[1].elements["ns0:address"]
+    address_el = root.elements[1].elements["ns0:address"]exit
     contact_el = root.elements[1].elements["ns0:contact"]
     
     root.add_attributes({"interchangeDate" => Time.now.to_s, "xmlns:ns0" => schema})
